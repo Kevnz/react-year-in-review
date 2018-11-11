@@ -1,0 +1,12 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#0668fa",
+    "titleBar.inactiveBackground": "#165681cc"
+  },
+  "vsicons.associations.files": [
+    { "icon": "markdown",
+      "extensions": ["deck.mdx"],
+      "extensionsGlob":["mdx"],
+      "filename": true, "format": "svg" }]
+
+}
