@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "version": "1.0.0",
+  "description": "Slides for what is going on with React talk",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx",
+    "help": "mdx-deck"
+  },
+  "keywords": [],
+  "author": "Kevin Isom",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^1.0.1",
+    "gh-pages": "^2.0.1",
+    "mdx-deck": "^1.6.7",
+    "mdx-deck-code-surfer": "^0.5.3",
+    "prism-react-renderer": "^0.1.4",
+    "raw-loader": "^0.5.1",
+    "react-svg-inline": "^2.1.1"
+  },
+  "name": "new-in-react",
+  "dependencies": {}
+}
