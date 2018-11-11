@@ -1,0 +1,384 @@
+import { Head, Notes, Appear } from 'mdx-deck'
+
+import { future  } from 'mdx-deck/themes'
+
+import { CodeSurfer } from "mdx-deck-code-surfer"
+import yellow from "./theme"
+import nightOwl from "prism-react-renderer/themes/nightOwl"
+import ContextExample from './components/context-example'
+import ContextStaticExample from './components/context-static-example'
+
+export { components } from "mdx-deck-code-surfer"
+
+export const theme = {
+  ...yellow,
+  codeSurfer: {
+    ...nightOwl,
+    showNumbers: false
+  },
+   css: {
+    textAlign: 'left',
+    fontSize: '16px',
+    '@media screen and (min-width:64em)': {
+      fontSize: '32px',
+    },
+    '& .Slide > div': {
+      minWidth: '80vw',
+      minHeight: '60vh'
+    }
+  }
+}
+
+
+
+<Head>
+  <title>What's going on with React?</title>
+</Head>
+
+# AkJS
+
+### What's been going on with React for the last year?
+
+---
+
+# But First
+
+---
+
+# Who is this guy?
+
+---
+
+# Senior Engineer @ Lightbox
+<svg viewBox="0 0 1029 327" xmlns="http://www.w3.org/2000/svg">
+  <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+    <rect
+      id="Rectangle-path"
+      stroke="#000000"
+      fill="#FFFFFF"
+      x="11"
+      y="10"
+      width="1006"
+      height="306"
+    />
+    <path
+      d="M0,0 L0,326.034 L1028.463,326.034 L1028.463,0 L0,0 L0,0 Z M1007.18,304.753 L21.282,304.753 L21.282,21.285 L1007.179,21.285 L1007.179,304.753 L1007.18,304.753 Z M86.768,239.265 L86.768,86.771 L119.511,86.771 L119.511,211.102 L169.657,211.102 L169.657,239.266 L86.768,239.266 L86.768,239.265 Z M189.302,239.265 L189.302,86.771 L222.045,86.771 L222.045,239.266 L189.302,239.266 L189.302,239.265 Z M342.931,138.632 L342.931,127.91 C342.931,104.099 326.444,83.721 293.931,83.721 C261.417,83.721 243.328,105.243 243.328,127.91 L243.328,198.124 C243.328,220.792 261.417,242.313 293.931,242.313 C326.444,242.313 342.931,221.934 342.931,198.124 L342.931,160.841 L293.474,160.841 L293.474,183.28 L311.332,183.28 L311.332,199.042 C311.332,207.513 306.295,214.839 294.158,214.839 C282.252,214.839 276.528,207.054 276.528,198.581 L276.528,127.451 C276.528,118.98 282.253,111.194 294.158,111.194 C306.295,111.194 311.332,118.521 311.332,126.992 L311.332,138.632 L342.931,138.632 L342.931,138.632 Z M434.965,239.265 L434.965,178.128 L396.958,178.128 L396.958,239.265 L364.213,239.265 L364.213,86.771 L396.958,86.771 L396.958,149.963 L434.965,149.963 L434.965,86.771 L467.71,86.771 L467.71,239.266 L434.965,239.266 L434.965,239.265 Z M553.067,114.704 L553.067,239.266 L520.327,239.266 L520.327,114.704 L487.354,114.704 L487.354,86.771 L585.81,86.771 L585.81,114.704 L553.067,114.704 L553.067,114.704 Z M662.014,239.265 L605.458,239.265 L605.458,86.771 L661.328,86.771 C686.056,86.771 699.565,100.05 699.565,121.804 L699.565,132.795 C699.565,147.217 693.839,158.44 678.268,161.187 C694.526,164.619 700.48,175.383 700.48,189.578 L700.48,204.232 C700.482,226.212 686.742,239.265 662.014,239.265 L662.014,239.265 Z M668.424,124.777 C668.424,117.223 665.219,112.416 656.748,112.416 L638.43,112.416 L638.43,151.339 L655.373,151.339 C663.848,151.339 668.425,146.989 668.425,138.061 L668.424,124.777 L668.424,124.777 Z M669.114,187.517 C669.114,178.585 664.534,174.005 656.06,174.005 L638.43,174.005 L638.43,213.618 L657.433,213.618 C665.905,213.618 669.114,209.038 669.114,201.483 L669.114,187.514 L669.115,187.514 L669.115,187.517 L669.114,187.517 Z M770.995,242.314 C739.626,242.314 720.849,222.853 720.849,195.605 L720.849,130.2 C720.849,103.184 739.625,83.722 770.995,83.722 C802.592,83.722 821.141,103.184 821.141,130.2 L821.141,195.605 C821.14,222.853 802.591,242.314 770.995,242.314 L770.995,242.314 Z M788.168,128.369 C788.168,118.064 781.985,111.195 770.994,111.195 C760.23,111.195 754.048,118.064 754.048,128.369 L754.048,197.439 C754.048,207.74 760.232,214.609 770.994,214.609 C781.985,214.609 788.168,207.74 788.168,197.439 L788.168,128.369 L788.168,128.369 Z M906.521,239.265 L885.689,186.829 L863.017,239.265 L830.962,239.265 L867.597,161.871 L833.25,86.77 L867.597,86.77 L887.059,137.829 L908.353,86.77 L940.639,86.77 L905.15,160.041 L941.093,239.265 L906.521,239.265 L906.521,239.265 Z"
+      id="Shape"
+      fill="#000000"
+    />
+  </g>
+</svg>
+
+---
+# React 16
+## Architecture changes
+
+---
+
+## React 16.2
+
+* Fragments
+
+---
+
+<img src="https://media.giphy.com/media/cBQl0NCv0eZdS/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/cBQl0NCv0eZdS/giphy.gif';
+  }}
+  alt=""
+/>
+---
+
+<CodeSurfer
+  title="Fragments"
+   code={require("!raw-loader!./samples/fragments.js")}
+  steps={[
+    { lines: [6,9], notes: "No extra div" }
+  ]}
+/>
+
+---
+
+## But wait
+
+---
+
+<CodeSurfer
+  title="Fragments"
+   code={require("!raw-loader!./samples/fragments2.js")}
+  steps={[
+    { lines: [6,9], notes: "No need for Fragment import" }
+  ]}
+/>
+
+---
+
+## 16.3
+### Now we're cooking
+---
+
+<img src="https://media.giphy.com/media/6wpHEQNjkd74Q/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/6wpHEQNjkd74Q/giphy.gif';
+  }}
+  alt=""
+/>
+
+---
+## 16.3
+
+* createRef
+
+---
+
+<CodeSurfer
+  title="createRef"
+   code={require("!raw-loader!./samples/createRef.js")}
+  steps={[
+    { lines: [4,8], notes: "Setup" },
+    { lines: [12], notes: "Use" },
+  ]}
+/>
+
+---
+## 16.3
+
+* forwardRef
+
+---
+
+<CodeSurfer
+  title="forwardRef"
+   code={require("!raw-loader!./samples/forwardRef.js")}
+  steps={[
+    { lines: [1,2], notes: "Setup on element" },
+    { lines: [8,9], notes: "Use" },
+  ]}
+/>
+
+---
+
+## 16.3
+
+### Deprecated lifecycle methods
+<div>
+  <Appear>
+    <div>componentWillMount</div>
+    <div>componentWillReceiveProps</div>
+    <div>componentWillUpdate</div>
+  </Appear>
+</div>
+
+---
+
+## 16.3
+
+### New lifecycle methods
+
+<div style={{textAlign: 'left'}}>
+  <Appear>
+    <div>getDerivedStateFromProps -></div>
+    <div> &nbsp; &nbsp; componentWillReceiveProps</div>
+    <div>getSnapshotBeforeUpdate -></div>
+    <div> &nbsp; &nbsp; safely reading properties from the DOM before updates are made</div>
+  </Appear>
+</div>
+
+---
+
+## 16.3
+### StrictMode
+
+---
+
+<CodeSurfer
+  title="StrictMode"
+   code={require("!raw-loader!./samples/strictmode.js")}
+  steps={[
+    { lines: [7, 12], notes: "Wrapped components" },
+  ]}
+/>
+
+---
+## 16.3
+### StrictMode
+
+* Identifying components with unsafe lifecycles
+* Warning about legacy string ref API usage
+* Warning about deprecated findDOMNode usage
+* Detecting unexpected side effects
+* Detecting legacy context API
+
+---
+## 16.3
+### Context
+
+---
+
+<img src="https://media.giphy.com/media/tqiYB9X6goN68/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/tqiYB9X6goN68/giphy.gif';
+  }}
+  alt=""
+/>
+
+---
+
+<CodeSurfer
+  title="Context"
+   code={require("!raw-loader!./samples/context-example-part-1.js")}
+  steps={[
+    { lines: [1], notes: "Create context" },
+    {lines: [], notes: "Wrap with provider"}
+  ]}
+/>
+
+
+---
+
+<CodeSurfer
+  title="Context Usage"
+   code={require("!raw-loader!./samples/context-example-part-2.js")}
+  steps={[
+    { lines: [1], notes: "Create context" },
+    {lines: [], notes: "Wrap with provider"}
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="Context App"
+   code={require("!raw-loader!./samples/context-example-part-3.js")}
+  steps={[
+    { lines: [3], notes: "Wrap the app" }
+  ]}
+/>
+
+---
+
+## Example
+<ContextExample />
+
+---
+
+## 16.4 - Pointer Events
+
+<ul className="kev-list">
+  <li><code className="code-text">onPointerDown</code></li>
+  <li><code className="code-text">onPointerMove</code></li>
+  <li><code className="code-text">onPointerUp</code></li>
+  <li><code className="code-text">onPointerCancel</code></li>
+  <li><code className="code-text">onGotPointerCapture</code></li>
+  <li><code className="code-text">onLostPointerCapture</code></li>
+  <li><code className="code-text">onPointerEnter</code></li>
+  <li><code className="code-text">onPointerLeave</code></li>
+  <li><code className="code-text">onPointerOver</code></li>
+  <li><code className="code-text">onPointerOut</code></li>
+</ul>
+
+---
+
+## 16.5 - Profiler
+
+---
+
+## 16.6
+
+---
+
+<CodeSurfer
+  title="React lazy"
+   code={require("!raw-loader!./samples/lazy.js")}
+  steps={[
+    { lines: [1], notes: "import module" },
+    { lines: [6], notes: "Suspense" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="React lazy routes"
+   code={require("!raw-loader!./samples/lazy-router-example.js")}
+  steps={[
+    {notes: 'Load route files with suspense'},
+    { lines: [2], notes: "Custom check" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="React memo"
+   code={require("!raw-loader!./samples/memo.js")}
+  steps={[
+    { lines: [1], notes: "Normal usage" },
+    { lines: [8, 15], notes: "Custom check" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="React contextType"
+   code={require("!raw-loader!./samples/context-static.js")}
+  steps={[
+    { lines: [4, 15], notes: "Static Property" },
+    { lines: [8, 19], notes: "this.context" }
+  ]}
+/>
+
+---
+
+<ContextStaticExample />
+
+---
+
+# What's next?
+
+---
+
+# The RFC Process
+
+---
+
+# Hooks
+
+---
+
+<CodeSurfer
+  title="useState Hook"
+   code={require("!raw-loader!./samples/use-state.js")}
+  steps={[
+    { lines: [1], notes: "Import useState hook" },
+    { lines: [4], notes: "use the useState hook" },
+    { lines: [5, 8], notes: "set new value" }
+  ]}
+/>
+
+---
+
+# The End
+
+<Notes>
+- 16.3 - Context, createRef, forwardRef, lifecycle, strict mode https://reactjs.org/blog/2018/03/29/react-v-16-3.html
+- 16.4 - Pointer Events - https://reactjs.org/blog/2018/05/23/react-v-16-4.html
+- 16.5 - Profiler - https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html
+- 16.6 - lazy, memo, contextType = https://reactjs.org/blog/2018/10/23/react-v-16-6.html
+- 16.7? - hooks
+</Notes>
+
+---
