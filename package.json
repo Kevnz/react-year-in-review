@@ -7,7 +7,9 @@
     "build": "mdx-deck build deck.mdx",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
-    "help": "mdx-deck"
+    "help": "mdx-deck",
+    "prepublish:deck": "npm run build",
+    "publish:deck": "node ./scripts/publish.js"
   },
   "keywords": [],
   "author": "Kevin Isom",
@@ -22,5 +24,8 @@
     "react-svg-inline": "^2.1.1"
   },
   "name": "new-in-react",
-  "dependencies": {}
+  "dependencies": {
+    "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0"
+  }
 }
