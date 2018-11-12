@@ -1,4 +1,8 @@
 import AppProvider from './provider'
 const App = () => {
-  return <AppProvider><Blue /></AppProvider>
+  return (
+    <AppProvider>
+      <Blue />
+    </AppProvider>
+  )
 }
