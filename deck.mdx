@@ -6,8 +6,8 @@ import { CodeSurfer } from "mdx-deck-code-surfer"
 import yellow from "./theme"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import ContextExample from './components/context-example'
-import ContextStaticExample from './components/context-static-example'
-
+import ContextStaticExample from  './components/context-static-example'
+import UseContextHookExample from './components/context-hook-example'
 export { components } from "mdx-deck-code-surfer"
 
 export const theme = {
@@ -240,8 +240,8 @@ export const theme = {
   title="Context"
    code={require("!raw-loader!./samples/context-example-part-1.js")}
   steps={[
-    { lines: [1], notes: "Create context" },
-    {lines: [], notes: "Wrap with provider"}
+    { lines: [2], notes: "Create context" },
+    { lines: [12, 14], notes: "Wrap with provider" }
   ]}
 />
 
@@ -252,8 +252,8 @@ export const theme = {
   title="Context Usage"
    code={require("!raw-loader!./samples/context-example-part-2.js")}
   steps={[
-    { lines: [1], notes: "Create context" },
-    {lines: [], notes: "Wrap with provider"}
+    { lines: [3, 5, 10,12], notes: "Wrap with provider"},
+    { lines: [4, 11], notes: "Render prop with context"}
   ]}
 />
 
@@ -263,7 +263,7 @@ export const theme = {
   title="Context App"
    code={require("!raw-loader!./samples/context-example-part-3.js")}
   steps={[
-    { lines: [3], notes: "Wrap the app" }
+    { lines: [4,6], notes: "Wrap the app" }
   ]}
 />
 
@@ -343,6 +343,8 @@ export const theme = {
 
 ---
 
+## Example
+
 <ContextStaticExample />
 
 ---
@@ -359,18 +361,177 @@ export const theme = {
 
 ---
 
+## useState
+
+---
+
 <CodeSurfer
   title="useState Hook"
    code={require("!raw-loader!./samples/use-state.js")}
   steps={[
+        {notes: 'useState'},
     { lines: [1], notes: "Import useState hook" },
-    { lines: [4], notes: "use the useState hook" },
-    { lines: [5, 8], notes: "set new value" }
+    { lines: [5], notes: "use the useState hook" },
+    { lines: [9], notes: "set new value" }
   ]}
 />
 
 ---
 
+## useEffect
+
+---
+
+<CodeSurfer
+  title="useEffect Hook"
+   code={require("!raw-loader!./samples/use-effect.js")}
+  steps={[
+    {notes: 'useEffect'},
+    { lines: [7], notes: "useEffect" },
+    { lines: [9], notes: "side effect" }
+  ]}
+/>
+
+---
+
+### useContext
+
+---
+
+<CodeSurfer
+  title="useContext Hook"
+   code={require("!raw-loader!./samples/use-context.js")}
+  steps={[
+    {notes: 'Using the useContext'},
+    { lines: [4, 12], notes: "useContext" },
+    { lines: [7,15], notes: "No 'this'" }
+  ]}
+/>
+
+---
+<UseContextHookExample />
+---
+
+## That is nice, but
+
+---
+<img src="https://media.giphy.com/media/D3OdaKTGlpTBC/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/D3OdaKTGlpTBC/giphy.gif';
+  }}
+  alt=""
+/>
+
+---
+
+<CodeSurfer
+  title="useReducer Hook"
+   code={require("!raw-loader!./samples/use-reducer.js")}
+  steps={[
+    { notes: 'Setup the reducer'},
+    { lines: [3], notes: "Reducer" },
+    { lines: [5, 7, 9], notes: "Actions" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="useReducer Hook"
+   code={require("!raw-loader!./samples/use-reducer-2.js")}
+  steps={[
+        {notes: 'The dispatcher'},
+    { lines: [3], notes: "useReducer" },
+    { lines: [6, 9, 10], notes: "Dispatch" }
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="useCallback Hook"
+   code={`
+const memoizedCallback = useCallback(
+  () => {
+    doSomething(a, b);
+  },
+  [a, b],
+)
+`}
+  steps={[
+    {notes: 'Returns a memoized callback.'}
+  ]}
+/>
+
+---
+<CodeSurfer
+  title="useCallback Hook"
+   code={`
+const memoizedValue =
+  useMemo(() => computeExpensiveValue(a, b), [a, b]);
+`}
+  steps={[
+    {notes: 'Returns a memoized value'}
+  ]}
+/>
+
+---
+
+
+<CodeSurfer
+  title="useRef Hook"
+   code={require("!raw-loader!./samples/use-ref.js")}
+  steps={[
+        {notes: 'useRef'},
+    { lines: [2], notes: "setup useRef" },
+    { lines: [9], notes: "Set ref property" },
+    { lines: [5], notes: "call the ref" },
+  ]}
+/>
+
+---
+
+<CodeSurfer
+  title="useImperative Hook"
+   code={require("!raw-loader!./samples/use-imperative.js")}
+  steps={[
+        {notes: 'useImperative'},
+    { lines: [2], notes: "setup useRef" },
+    { lines: [8], notes: "Set ref property" },
+    { lines: [4 ], notes: "call the ref" },
+    { lines: [10 ], notes: "forwardRef" },
+  ]}
+/>
+
+---
+
+<img src="https://media.giphy.com/media/l0HFkA6omUyjVYqw8/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/l0HFkA6omUyjVYqw8/giphy.gif';
+  }}
+  alt=""
+/>
+---
+
+<img src="https://media.giphy.com/media/nh9k1qzeLf99S/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/nh9k1qzeLf99S/giphy.gif';
+  }}
+  alt=""
+/>
+---
 # The End
 
 <Notes>
