@@ -8,9 +8,11 @@ class AppProvider extends Component {
     }
   }
  render() {
-    return <AppContext.Provider value={this.state}>
-      {this.props.children}
-    </AppContext.Provider>
+    return (
+      <AppContext.Provider value={this.state}>
+        {this.props.children}
+      </AppContext.Provider>
+    )
   }
 }
 
@@ -18,7 +20,13 @@ class Green extends Component {
   static contextType = AppContext
   render() {
     return (
-      <div className="green">
+      <div className="green" style={{
+        margin: 20,
+        marginLeft: 0,
+        width: 350,
+        height: 100,
+        fontSize: 40
+      }}>
         {this.context.number}
       </div>
     )
@@ -30,9 +38,15 @@ class Blue extends Component {
   render() {
     return (
       <div className="blue">
-        <button onClick={this.context.inc}>INC</button>
+        <button style={{
+          margin: 20,
+          marginLeft: 0,
+          width: 350,
+          height: 100,
+          fontSize: 40
+        }} onClick={this.context.inc}>INC</button>
         <Green />
-    </div>
+      </div>
     )
   }
 }
