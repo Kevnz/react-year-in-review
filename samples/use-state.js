@@ -1,13 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-const TextBox = () => {
-  const [value, setValue] = useState(null)
-  const handleChange = e => setValue(e.target.value)
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
   return (
-    <input
-      onChange={handleChange}
-      value={value}
-      type="text"
-    />
-  )
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
 }
