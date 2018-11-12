@@ -14,7 +14,13 @@ class AppProvider extends Component {
   }
 }
 const Green = () => (
-  <div className="green">
+  <div className="green" style={{
+    margin: 20,
+    marginLeft: 0,
+    width: 350,
+    height: 100,
+    fontSize: 40
+  }}>
      <AppContext.Consumer>
         {(context) => context.number}
       </AppContext.Consumer>
@@ -25,6 +31,7 @@ const Blue = () => (
     <AppContext.Consumer>
         {(context) => <button style={{
           margin: 20,
+          marginLeft: 0,
           width: 350,
           height: 100,
           fontSize: 40
