@@ -1,4 +1,4 @@
-import React, { StrictMode } from 'react';
+import React, { StrictMode } from 'react'
 
 function ExampleApplication() {
   return (
@@ -12,5 +12,5 @@ function ExampleApplication() {
       </StrictMode>
       <Footer />
     </div>
-  );
+  )
 }

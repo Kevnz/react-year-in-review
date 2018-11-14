@@ -3,12 +3,12 @@ function Toolbar(props) {
     <div>
       <ThemedButton />
     </div>
-  );
+  )
 }
 
 class ThemedButton extends React.Component {
-  static contextType = ThemeContext;
+  static contextType = ThemeContext
   render() {
-    return <Button theme={this.context} />;
+    return <Button theme={this.context} />
   }
 }

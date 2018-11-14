@@ -1,4 +1,4 @@
-const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const OtherComponent = React.lazy(() => import('./OtherComponent'))
 
 function MyComponent() {
   return (
@@ -7,5 +7,5 @@ function MyComponent() {
         <OtherComponent />
       </Suspense>
     </div>
-  );
+  )
 }

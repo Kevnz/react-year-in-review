@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Slides for what is going on with React talk",
   "scripts": {
+    "lint": "eslint ./components --fix && eslint ./samples --fix",
     "start": "mdx-deck deck.mdx",
-    "build": "mdx-deck build deck.mdx",
+    "build": "mdx-deck build deck.mdx --no-html",
     "pdf": "mdx-deck pdf deck.mdx",
     "image": "mdx-deck screenshot deck.mdx",
     "help": "mdx-deck",
@@ -15,7 +16,10 @@
   "author": "Kevin Isom",
   "license": "MIT",
   "devDependencies": {
+    "@kev_nz/eslint-config": "^2.0.0",
+    "babel-eslint": "^10.0.1",
     "css-loader": "^1.0.1",
+    "eslint": "^5.9.0",
     "gh-pages": "^2.0.1",
     "mdx-deck": "^1.6.7",
     "mdx-deck-code-surfer": "^0.5.3",

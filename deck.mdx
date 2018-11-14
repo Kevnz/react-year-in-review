@@ -7,7 +7,7 @@ import yellow from "./theme"
 import nightOwl from "prism-react-renderer/themes/nightOwl"
 import ContextExample from './components/context-example'
 import ContextStaticExample from  './components/context-static-example'
-import UseContextHookExample from './components/context-hook-example'
+
 export { components } from "mdx-deck-code-surfer"
 
 export const theme = {
@@ -72,6 +72,38 @@ export const theme = {
 ---
 # React 16
 ## Architecture changes
+### Portals
+### ErrorBoundries
+---
+
+<CodeSurfer
+  title="Portals"
+   code={require("!raw-loader!./samples/portals.js")}
+  steps={[
+    {notes: 'Using the portals'},
+    { lines: [2, 3], notes: "Two DOM Elements" },
+    { lines: [5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23], notes: "A Modal" },
+    { lines: [48], notes: 'Parent'},
+     { lines: [56], notes: 'Child'}
+  ]}
+/>
+
+---
+
+<a href="https://codepen.io/Kevnz/pen/vQydvq" target="__blank">CodePen</a>
+
+---
+
+<CodeSurfer
+  title="Error Boundries"
+   code={require("!raw-loader!./samples/error-boundry.js")}
+  steps={[
+    {notes: 'Error Boundries'},
+    { lines: [6, 11], notes: "" },
+    { lines: [17,18, 19, 20], notes: 'Check if error'},
+    { lines: [26, 27, 28], notes: 'Wrapped Components'}
+  ]}
+/>
 
 ---
 
@@ -79,18 +111,6 @@ export const theme = {
 
 * Fragments
 
----
-
-<img src="https://media.giphy.com/media/cBQl0NCv0eZdS/giphy.gif"
-  style={{
-    minWidth: 600
-  }}
-  onError={() => {
-    this.onerror=null;
-    this.src='https://i.giphy.com/media/cBQl0NCv0eZdS/giphy.gif';
-  }}
-  alt=""
-/>
 ---
 
 <CodeSurfer
@@ -113,6 +133,19 @@ export const theme = {
   steps={[
     { lines: [6,9], notes: "No need for Fragment import" }
   ]}
+/>
+
+---
+
+<img src="https://media.giphy.com/media/cBQl0NCv0eZdS/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/cBQl0NCv0eZdS/giphy.gif';
+  }}
+  alt=""
 />
 
 ---
@@ -231,7 +264,7 @@ export const theme = {
     this.onerror=null;
     this.src='https://i.giphy.com/media/tqiYB9X6goN68/giphy.gif';
   }}
-  alt=""
+  alt="Big Deal"
 />
 
 ---
@@ -241,6 +274,7 @@ export const theme = {
    code={require("!raw-loader!./samples/context-example-part-1.js")}
   steps={[
     { lines: [2], notes: "Create context" },
+    { lines: [3], notes: "Create Provider" },
     { lines: [12, 14], notes: "Wrap with provider" }
   ]}
 />
@@ -407,11 +441,11 @@ export const theme = {
     { lines: [7,15], notes: "No 'this'" }
   ]}
 />
-
----
-<UseContextHookExample />
 ---
 
+<a href="https://codesandbox.io/s/1olk87xylj" target="__blank">Code Sandbox</a>
+
+---
 ## That is nice, but
 
 ---
@@ -508,6 +542,24 @@ const memoizedValue =
 />
 
 ---
+## Reactions to Hooks?
+___
+
+### Some
+<img src="https://media.giphy.com/media/zYwjhqA7s9uZG/giphy.gif"
+  style={{
+    minWidth: 600
+  }}
+  onError={() => {
+    this.onerror=null;
+    this.src='https://i.giphy.com/media/zYwjhqA7s9uZG/giphy.gif';
+  }}
+  alt=""
+/>
+
+---
+
+### Others
 
 <img src="https://media.giphy.com/media/l0HFkA6omUyjVYqw8/giphy.gif"
   style={{
@@ -519,7 +571,10 @@ const memoizedValue =
   }}
   alt=""
 />
+
 ---
+
+## Mine
 
 <img src="https://media.giphy.com/media/nh9k1qzeLf99S/giphy.gif"
   style={{
@@ -531,8 +586,21 @@ const memoizedValue =
   }}
   alt=""
 />
+
+---
+
+## Example
+
+A rewrite a library to use hooks
+
+<a href="https://github.com/Kevnz/react-form-elements">ReactFormElements</a>
+
 ---
 # The End
+
+---
+
+# Thanks
 
 <Notes>
 - 16.3 - Context, createRef, forwardRef, lifecycle, strict mode https://reactjs.org/blog/2018/03/29/react-v-16-3.html

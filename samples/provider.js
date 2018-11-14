@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 
 import ExampleContext from './define-context'
 
-
 class ExampleProvider extends Component {
   constructor(props) {
     super(props)
     this.state = {
       showCompleted: true,
       items: [],
-
     }
   }
   updateItem = item => {

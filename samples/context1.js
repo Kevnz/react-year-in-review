@@ -1,4 +1,4 @@
-const ThemeContext = React.createContext('light');
+const ThemeContext = React.createContext('light')
 
 class App extends React.Component {
   render() {
@@ -6,6 +6,6 @@ class App extends React.Component {
       <ThemeContext.Provider value="dark">
         <Toolbar />
       </ThemeContext.Provider>
-    );
+    )
   }
 }
